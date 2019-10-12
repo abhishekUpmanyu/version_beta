@@ -103,7 +103,7 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return Center(
       child: Material(
-        color: Colors.transparent,
+        color: Colors.white,
         child: Container(
           padding: EdgeInsets.all(25.0),
           child: Center(
@@ -115,16 +115,16 @@ class _LoginState extends State<Login> {
                       border: Border.all(
                           width: 0.5,
                           color: _controller.text.length == 13
-                              ? Color(0xfff6a800)
-                              : Colors.white54),
+                              ? Colors.teal
+                              : Colors.black54),
                       borderRadius: BorderRadius.all(Radius.circular(
                           MediaQuery.of(context).size.width))),
                   child: Padding(
                     padding: EdgeInsets.symmetric(
                         horizontal: MediaQuery.of(context).size.width / 30),
                     child: TextField(
-                      style: TextStyle(color: Colors.white),
-                      cursorColor: Colors.white54,
+                      style: TextStyle(color: Colors.black54),
+                      cursorColor: Colors.black54,
                       controller: _controller,
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
@@ -134,11 +134,11 @@ class _LoginState extends State<Login> {
                               ? 'Phone number should be 10 chararters'
                               : null,
                           errorStyle: TextStyle(color: Colors.redAccent),
-                          icon: Icon(Icons.call, color: Colors.white54),
+                          icon: Icon(Icons.call, color: Colors.teal),
                           labelStyle: TextStyle(
                               fontWeight: FontWeight.w300,
                               fontSize: 20.0,
-                              color: Colors.white38)),
+                              color: Colors.teal)),
                       onChanged: (value) {
                         if (!value.startsWith('+91')) {
                           _controller.text =
@@ -157,8 +157,8 @@ class _LoginState extends State<Login> {
                     height: MediaQuery.of(context).size.height / 20,
                     child: FloatingActionButton(
                       backgroundColor: _controller.text.length == 13
-                          ? Color(0xfff6a800)
-                          : Color(0xff99b38c),
+                          ? Colors.teal
+                          : Colors.grey,
                       onPressed: () {
                         verifyPhone();
                         setState(() {
@@ -239,7 +239,7 @@ class _LoginState extends State<Login> {
                           EdgeInsets.all(MediaQuery.of(context).size.width / 200),
                           child: DecoratedBox(
                             decoration: BoxDecoration(
-                                border: Border.all(width: 0.5, color: Colors.white54),
+                                border: Border.all(width: 0.5, color: Colors.black54),
                                 borderRadius: BorderRadius.all(Radius.circular(
                                     MediaQuery.of(context).size.width))),
                             child: SizedBox(
@@ -253,10 +253,10 @@ class _LoginState extends State<Login> {
                                 keyboardType: TextInputType.numberWithOptions(),
                                 decoration: InputDecoration(
                                     hintText: '-',
-                                    hintStyle: TextStyle(color: Colors.white54),
+                                    hintStyle: TextStyle(color: Colors.black54),
                                     border: InputBorder.none),
                                 style: TextStyle(
-                                    color: Colors.white70,
+                                    color: Colors.black54,
                                     fontFamily: 'NovaMono',
                                     fontSize: MediaQuery.of(context).size.width / 25),
                                 textAlign: TextAlign.center,
@@ -277,7 +277,7 @@ class _LoginState extends State<Login> {
                           EdgeInsets.all(MediaQuery.of(context).size.width / 200),
                           child: DecoratedBox(
                             decoration: BoxDecoration(
-                                border: Border.all(width: 0.5, color: Colors.white54),
+                                border: Border.all(width: 0.5, color: Colors.black54),
                                 borderRadius: BorderRadius.all(Radius.circular(
                                     MediaQuery.of(context).size.width))),
                             child: SizedBox(
@@ -291,10 +291,10 @@ class _LoginState extends State<Login> {
                                 keyboardType: TextInputType.numberWithOptions(),
                                 decoration: InputDecoration(
                                     hintText: '-',
-                                    hintStyle: TextStyle(color: Colors.white54),
+                                    hintStyle: TextStyle(color: Colors.black54),
                                     border: InputBorder.none),
                                 style: TextStyle(
-                                    color: Colors.white70,
+                                    color: Colors.black54,
                                     fontFamily: 'NovaMono',
                                     fontSize: MediaQuery.of(context).size.width / 25),
                                 textAlign: TextAlign.center,
@@ -319,7 +319,7 @@ class _LoginState extends State<Login> {
                           EdgeInsets.all(MediaQuery.of(context).size.width / 200),
                           child: DecoratedBox(
                             decoration: BoxDecoration(
-                                border: Border.all(width: 0.5, color: Colors.white54),
+                                border: Border.all(width: 0.5, color: Colors.black54),
                                 borderRadius: BorderRadius.all(Radius.circular(
                                     MediaQuery.of(context).size.width))),
                             child: SizedBox(
@@ -333,10 +333,10 @@ class _LoginState extends State<Login> {
                                 keyboardType: TextInputType.numberWithOptions(),
                                 decoration: InputDecoration(
                                     hintText: '-',
-                                    hintStyle: TextStyle(color: Colors.white54),
+                                    hintStyle: TextStyle(color: Colors.black54),
                                     border: InputBorder.none),
                                 style: TextStyle(
-                                    color: Colors.white70,
+                                    color: Colors.black54,
                                     fontFamily: 'NovaMono',
                                     fontSize: MediaQuery.of(context).size.width / 25),
                                 textAlign: TextAlign.center,
@@ -361,7 +361,7 @@ class _LoginState extends State<Login> {
                           EdgeInsets.all(MediaQuery.of(context).size.width / 200),
                           child: DecoratedBox(
                             decoration: BoxDecoration(
-                                border: Border.all(width: 0.5, color: Colors.white54),
+                                border: Border.all(width: 0.5, color: Colors.black54),
                                 borderRadius: BorderRadius.all(Radius.circular(
                                     MediaQuery.of(context).size.width))),
                             child: SizedBox(
@@ -375,10 +375,10 @@ class _LoginState extends State<Login> {
                                 keyboardType: TextInputType.numberWithOptions(),
                                 decoration: InputDecoration(
                                     hintText: '-',
-                                    hintStyle: TextStyle(color: Colors.white54),
+                                    hintStyle: TextStyle(color: Colors.black54),
                                     border: InputBorder.none),
                                 style: TextStyle(
-                                    color: Colors.white70,
+                                    color: Colors.black54,
                                     fontFamily: 'NovaMono',
                                     fontSize: MediaQuery.of(context).size.width / 25),
                                 textAlign: TextAlign.center,
@@ -403,7 +403,7 @@ class _LoginState extends State<Login> {
                           EdgeInsets.all(MediaQuery.of(context).size.width / 200),
                           child: DecoratedBox(
                             decoration: BoxDecoration(
-                                border: Border.all(width: 0.5, color: Colors.white54),
+                                border: Border.all(width: 0.5, color: Colors.black54),
                                 borderRadius: BorderRadius.all(Radius.circular(
                                     MediaQuery.of(context).size.width))),
                             child: SizedBox(
@@ -417,10 +417,10 @@ class _LoginState extends State<Login> {
                                 keyboardType: TextInputType.numberWithOptions(),
                                 decoration: InputDecoration(
                                     hintText: '-',
-                                    hintStyle: TextStyle(color: Colors.white54),
+                                    hintStyle: TextStyle(color: Colors.black54),
                                     border: InputBorder.none),
                                 style: TextStyle(
-                                    color: Colors.white70,
+                                    color: Colors.black54,
                                     fontFamily: 'NovaMono',
                                     fontSize: MediaQuery.of(context).size.width / 25),
                                 textAlign: TextAlign.center,
@@ -445,7 +445,7 @@ class _LoginState extends State<Login> {
                           EdgeInsets.all(MediaQuery.of(context).size.width / 200),
                           child: DecoratedBox(
                             decoration: BoxDecoration(
-                                border: Border.all(width: 0.5, color: Colors.white54),
+                                border: Border.all(width: 0.5, color: Colors.black54),
                                 borderRadius: BorderRadius.all(Radius.circular(
                                     MediaQuery.of(context).size.width))),
                             child: SizedBox(
@@ -459,10 +459,10 @@ class _LoginState extends State<Login> {
                                 keyboardType: TextInputType.numberWithOptions(),
                                 decoration: InputDecoration(
                                     hintText: '-',
-                                    hintStyle: TextStyle(color: Colors.white54),
+                                    hintStyle: TextStyle(color: Colors.black54),
                                     border: InputBorder.none),
                                 style: TextStyle(
-                                    color: Colors.white70,
+                                    color: Colors.black54,
                                     fontFamily: 'NovaMono',
                                     fontSize: MediaQuery.of(context).size.width / 25),
                                 textAlign: TextAlign.center,
@@ -481,14 +481,12 @@ class _LoginState extends State<Login> {
                   ),
                 ),
                 FloatingActionButton(
-                  backgroundColor: Color(0xfff6a800),
+                  backgroundColor: Colors.teal,
                   child: Icon(Icons.done),
                   onPressed: () {
                     FirebaseAuth.instance.currentUser().then((user) {
                       if (user == null) {
                         signIn();
-                      } else {
-                        print('jdjsfdh');
                       }
                     });
                   },
@@ -496,7 +494,7 @@ class _LoginState extends State<Login> {
               ],
             ),
             contentPadding: EdgeInsets.all(9.0),
-            backgroundColor: Color(0xff302b2f),
+            backgroundColor: Colors.white,
             actions: <Widget>[
               errorLogin
                   ? Text(
@@ -511,6 +509,7 @@ class _LoginState extends State<Login> {
   }
 
   signIn() async {
+    print('signin');
     try {
       final AuthCredential credential = PhoneAuthProvider.getCredential(
         verificationId: _verificationId,
@@ -522,10 +521,12 @@ class _LoginState extends State<Login> {
           .then((AuthResult authResult) {
         Firestore.instance.collection('users').document(authResult.user.uid).get().then((snapshot) {
           if (snapshot.exists) {
+            print('done');
             Firestore.instance.collection('start').document('start').get().then((snapshot) {
-              //TODO: navigate to main page after login
+              Navigator.of(context).pop();
             });
           } else {
+            print('signup');
             Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
