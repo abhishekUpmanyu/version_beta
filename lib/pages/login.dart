@@ -521,12 +521,10 @@ class _LoginState extends State<Login> {
           .then((AuthResult authResult) {
         Firestore.instance.collection('users').document(authResult.user.uid).get().then((snapshot) {
           if (snapshot.exists) {
-            print('done');
-            Firestore.instance.collection('start').document('start').get().then((snapshot) {
+            Navigator.of(context).pop();
               Navigator.of(context).pop();
-            });
           } else {
-            print('signup');
+            Navigator.of(context).pop();
             Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
