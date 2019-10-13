@@ -6,5 +6,4 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 void main() {
   runApp(MaterialApp(home: Home()));
-  FirebaseAuth.instance.signOut();
 }

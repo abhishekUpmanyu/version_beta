@@ -25,6 +25,7 @@ class _HomeState extends State<Home> {
   bool isLoggedIn;
 
   String message = '';
+  String aid = '';
 
   static LocationData currentLocation;
   var location = Location();
@@ -65,11 +66,14 @@ class _HomeState extends State<Home> {
       print(pointInTriangle(_currentLocation, coordinates[0], coordinates[1], coordinates[2]));
       if (pointInTriangle(_currentLocation, coordinates[0], coordinates[1], coordinates[2])) {
         if (elevation>520) {
-          message = 'You are in safe region';
+          message = 'You are in warning region';
+          aid = 'Take necessary precautions';
         } else if (elevation>480) {
-          message = 'You are in low danger region';
+          message = 'You are in low alert region';
+          aid = 'Aid will arrive soon';
         } else {
-          message = 'You are in high danger region.';
+          message = 'You are in high alert region';
+          aid = 'Aid will arrive at top priority';
         }
       }
     }
@@ -198,7 +202,32 @@ class _HomeState extends State<Home> {
                     number==null?Container():Text(number),
                     Padding(padding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height/40)),
                     emergency==null?Container():Text('Emergency Contant Number', style: TextStyle(color: Colors.red, fontSize: MediaQuery.of(context).size.width/26, fontWeight: FontWeight.w500)),
-                    emergency==null?Container():Text(emergency)
+                    emergency==null?Container():Text(emergency),
+                    Padding(
+                      padding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height/20),
+                      child: Material(
+                          elevation: 6.0,
+                          borderRadius: BorderRadius.all(Radius.circular(
+                              MediaQuery.of(context).size.width / 6)),
+                          color: Colors.red,
+                          child: InkWell(
+                            borderRadius: BorderRadius.all(Radius.circular(
+                                MediaQuery.of(context).size.width / 6)),
+                            onTap: () {
+                              FirebaseAuth.instance.signOut().then((value) {
+                                getLoginStatus();
+                                setState(() {});
+                              });
+                            },
+                            child: Padding(
+                              padding: EdgeInsets.all(
+                                  MediaQuery.of(context).size.width / 20),
+                              child: Icon(Icons.phonelink_erase,
+                                  color: Colors.white,
+                                  size: MediaQuery.of(context).size.width / 8),
+                            ),
+                          )),
+                    )
                   ],
                 ),
               )
@@ -318,17 +347,51 @@ class _HomeState extends State<Home> {
                               },
                               child: Container(
                                 width: MediaQuery.of(context).size.width,
-                                height: MediaQuery.of(context).size.height / 12,
+                                height: MediaQuery.of(context).size.height / 28,
                                 child: Text(
                                   message,
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     fontSize:
-                                        MediaQuery.of(context).size.width / 18,
+                                        MediaQuery.of(context).size.width / 22,
                                   ),
                                 ),
                               ),
                             ),
+                            Text(aid, textAlign: TextAlign.center),
+                            Icon(Icons.keyboard_arrow_down),
+                            sheetHeight>MediaQuery.of(context).size.height/6?
+                                Padding(padding: EdgeInsets.all(8.0),child:Column(
+                                  children: <Widget>[
+                                    Row(
+                                      children: <Widget>[
+                                        Padding(
+                                          padding: const EdgeInsets.all(16.0),
+                                          child: Icon(Icons.brightness_1, color: Colors.red),
+                                        ),
+                                        Text('High alert region')
+                                      ],
+                                    ),
+                                    Row(
+                                      children: <Widget>[
+                                        Padding(
+                                          padding: const EdgeInsets.all(16.0),
+                                          child: Icon(Icons.brightness_1, color: Colors.orange),
+                                        ),
+                                        Text('Low alert region')
+                                      ],
+                                    ),
+                                    Row(
+                                      children: <Widget>[
+                                        Padding(
+                                          padding: const EdgeInsets.all(16.0),
+                                          child: Icon(Icons.brightness_1, color: Colors.grey),
+                                        ),
+                                        Text('Warning region')
+                                      ],
+                                    )
+                                  ],
+                                )):Container()
                           ],
                         ),
                       ),
